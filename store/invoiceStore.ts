@@ -41,9 +41,14 @@ export const useInvoiceStore = create<InvoiceStore>((set) => ({
     set({ loading: true });
 
     const data = await getInvoices();
+    
+    // Sort by createdAt descending (newest first)
+    const sorted = [...data].sort((a, b) => 
+      new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
 
     set({
-      invoices: data,
+      invoices: sorted,
       loading: false,
     });
   },
@@ -54,9 +59,12 @@ export const useInvoiceStore = create<InvoiceStore>((set) => ({
     await createInvoice(invoice);
 
     const updated = await getInvoices();
+    const sorted = [...updated].sort((a, b) => 
+      new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
 
     set({
-      invoices: updated,
+      invoices: sorted,
       loading: false,
     });
   },
@@ -67,9 +75,12 @@ export const useInvoiceStore = create<InvoiceStore>((set) => ({
     await updateInvoiceApi(invoice);
 
     const updated = await getInvoices();
+    const sorted = [...updated].sort((a, b) => 
+      new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+    );
 
     set({
-      invoices: updated,
+      invoices: sorted,
       loading: false,
     });
   },
