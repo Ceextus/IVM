@@ -10,9 +10,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "InvoiceApp — Sales Invoice Management",
+  title: "IVM — Invoice Management System",
   description:
-    "A modern web application for managing sales invoices with CRUD operations, filtering, file uploads, and dashboard analytics.",
+    "A professional and minimalist application for managing invoices, tracking payments, and automating your bookkeeping with elegance.",
 };
 
 export default function RootLayout({
