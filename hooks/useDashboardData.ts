@@ -51,7 +51,6 @@ export function useDashboardData(): DashboardData {
     const pendingAmount = pendingInvoices.reduce((sum, inv) => sum + inv.total, 0);
     const overdueAmount = overdueInvoices.reduce((sum, inv) => sum + inv.total, 0);
 
-    // Monthly revenue for chart (last 6 months)
     const monthlyMap = new Map<string, { revenue: number; paid: number }>();
     const now = new Date();
 

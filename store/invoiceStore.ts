@@ -41,8 +41,6 @@ export const useInvoiceStore = create<InvoiceStore>((set) => ({
     set({ loading: true });
 
     const data = await getInvoices();
-    
-    // Sort by createdAt descending (newest first)
     const sorted = [...data].sort((a, b) => 
       new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
     );

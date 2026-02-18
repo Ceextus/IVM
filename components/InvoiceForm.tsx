@@ -175,7 +175,6 @@ export default function InvoiceForm({ initialData }: InvoiceFormProps) {
       onSubmit={handleSubmit}
       className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start max-w-6xl mx-auto"
     >
-      {/* Left Column: Form Fields */}
       <div className="lg:col-span-2 space-y-6">
         <div className="bg-white p-8 rounded-2xl border card-shadow dark:bg-slate-950 dark:border-slate-800 space-y-8">
           <div className="flex items-center gap-3 pb-6 border-b dark:border-slate-800">
@@ -386,7 +385,6 @@ export default function InvoiceForm({ initialData }: InvoiceFormProps) {
         </div>
       </div>
 
-      {/* Right Column: Actions & Summary */}
       <div className="space-y-6 sticky top-8">
         <div className="bg-white p-8 rounded-2xl border card-shadow dark:bg-slate-950 dark:border-slate-800 space-y-6">
           <h3 className="text-sm font-bold text-slate-950 dark:text-white uppercase tracking-wider">

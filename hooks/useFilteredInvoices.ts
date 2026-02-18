@@ -2,11 +2,6 @@ import { useMemo } from "react";
 import { useInvoiceStore } from "@/store/invoiceStore";
 import { Invoice } from "@/types/invoice";
 
-/**
- * Compute the real-time status of an invoice based on business rules.
- * This runs on every render cycle (memoized), so status is always fresh
- * without needing to mutate stored data.
- */
 function computeStatus(invoice: Invoice): Invoice {
   // If explicitly marked as paid, respect that
   if (invoice.status === "paid") return invoice;
@@ -31,15 +26,15 @@ export function useFilteredInvoices() {
   const filters = useInvoiceStore((state) => state.filters);
 
   const filtered = useMemo(() => {
-    // Step 1: Apply auto-status to all invoices
+    // Apply auto-status to all invoices
     let result = invoices.map(computeStatus);
 
-    // Step 2: Filter by status
+    // Filter by status
     if (filters.status !== "all") {
       result = result.filter((inv) => inv.status === filters.status);
     }
 
-    // Step 3: Filter by date range
+    // Filter by date range
     if (filters.dateFrom) {
       const from = new Date(filters.dateFrom);
       result = result.filter((inv) => new Date(inv.issueDate) >= from);
@@ -50,7 +45,7 @@ export function useFilteredInvoices() {
       result = result.filter((inv) => new Date(inv.issueDate) <= to);
     }
 
-    // Step 4: Filter by client name search
+    // Filter by client name search
     if (filters.search.trim()) {
       const searchLower = filters.search.toLowerCase();
       result = result.filter((inv) =>

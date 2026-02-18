@@ -62,7 +62,6 @@ export default function Sidebar() {
 
   return (
     <>
-      {/* Mobile Menu Button */}
       <div className="lg:hidden fixed top-4 left-4 z-50">
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -72,7 +71,6 @@ export default function Sidebar() {
         </button>
       </div>
 
-      {/* Sidebar container */}
       <aside
         className={cn(
           "fixed inset-y-0 left-0 z-40 w-64 bg-white border-r transition-transform duration-300 transform lg:translate-x-0",
@@ -81,7 +79,6 @@ export default function Sidebar() {
         )}
       >
         <div className="flex flex-col h-full">
-          {/* Logo */}
           <div className="flex items-center gap-3 px-6 h-16 border-b dark:border-slate-800">
             <div className="flex items-center justify-center w-8 h-8 rounded bg-[#10B981] text-white">
               <Zap size={18} fill="currentColor" />
@@ -91,7 +88,6 @@ export default function Sidebar() {
             </span>
           </div>
 
-          {/* Nav items */}
           <nav className="flex-1 px-4 py-4 space-y-1 overflow-y-auto modern-scrollbar">
             {navigation.map((item) => {
               const isSectionOpen = openSections.includes(item.name);
@@ -178,7 +174,6 @@ export default function Sidebar() {
         </div>
       </aside>
 
-      {/* Overlay */}
       {mobileMenuOpen && (
         <div
           className="fixed inset-0 z-30 bg-black/50 lg:hidden"
